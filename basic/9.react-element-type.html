@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactDOM</title>
+</head>
+
+<body>
+
+    <!-- 
+        *hook 
+        
+        + khi chưa có hỗ trợ hook thì class đầy đủ tính năng cho react
+        + bây giừo dùng hôk nhiều hơn gần 100% trong dự án mới, cũng có dùng class để 
+            làm việc nhưng không nhiều
+
+        1. React element types: string, function/ class
+            - wrapper
+                - Header -> Header component
+                - Content -> Content component
+                - Footer -> Footer component
+        2. Biểu diễn đơn giản với JSX
+    -->
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- Babel phân tích cú pháp và chuyển đỏi cú pháp -> JS -->
+
+    <script type="text/babel">
+
+        const Header = () => {
+            return (
+                <div class="header">Header</div>
+            )
+        }
+
+        class Content extends React.Component {
+            render() {
+                return (
+                    <div class="content">Content</div>
+                )
+            }
+        }
+
+        const Footer = () => {
+            return (
+                <div class="footer">Footer</div>
+            )
+        }
+
+        const app = (
+            <div class="wrapper">
+                <Header />
+                <Content />
+                <Footer />
+            </div>
+        )
+
+        ReactDOM.render(app, document.getElementById('root'));
+    </script>
+</body>
+
+</html>
